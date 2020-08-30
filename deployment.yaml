@@ -1,0 +1,37 @@
+apiVersion: apps/v1 # Kubernetes deployment API version
+kind: Deployment
+metadata:
+  name: hello-world-server
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: haoApp
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: haoApp
+    spec:
+      containers:
+      - name: server
+        image: gcr.io/yufan-site-1577056069686/server:latest
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  namespace: default
+spec:
+  selector:
+    app: haoApp
+  clusterIP: ""
+  type: LoadBalancer
+  # Available types are ExternalName, ClusterIP, NodePort, and LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080 
