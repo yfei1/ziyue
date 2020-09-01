@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package yelp;
+
+import "google/protobuf/timestamp.proto";
+
+message Metadata {
+  google.protobuf.Timestamp created_timestamp = 1;
+  google.protobuf.Timestamp deleted_timestamp = 2;
+  google.protobuf.Timestamp last_updated_timestamp = 3;
+}

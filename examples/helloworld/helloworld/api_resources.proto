@@ -1,32 +1,28 @@
-// Copyright 2015 gRPC authors.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 
 syntax = "proto3";
 
-// option go_package = "google.golang.org/grpc/examples/helloworld/helloworld";
-// option java_multiple_files = true;
-// option java_package = "io.grpc.examples.helloworld";
-// option java_outer_classname = "HelloWorldProto";
-
 package yelp;
-
-import "google/protobuf/timestamp.proto";
 
 service Yelp {
   rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {}
   rpc CreateBusiness (CreateBusinessRequest) returns (CreateBusinessReply) {}
 
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply) {}
+  rpc UpdateBusiness (UpdateBusinessRequest) returns (UpdateBusinessReply) {}
+
+  rpc GetUser (GetUserRequest) returns (GetUserReply) {}
+  rpc GetBusiness (GetBusinessRequest) returns (GetBusinessReply) {}
+
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserReply) {}
+  rpc DeleteBusiness (DeleteBusinessRequest) returns (DeleteBusinessReply) {}
+}
+
+message User {
+  string id = 1;
+  string headshot = 2;
+  repeated Review reviews = 3;
+  repeated Business bookmarks = 4;
+  Metadata metadata = 5;
 }
 
 message CreateUserRequest {
@@ -42,55 +38,65 @@ message GetUserRequest {
 }
 
 message DeleteUserRequest {
-  String user_id = 1;
+  string user_id = 1;
 }
 
-
-message User {
-  string id = 1;
-  string headshot = 2;
-  repeated Review reviews = 3;
-  repeated Business bookmarks = 4;
-  Metadata metadata = 5;
+message CreateUserReply {
+  User user = 1;
 }
 
-message CreateReviewRequest {
-  Review review = 1;
+message UpdateUserReply {
+  User user = 1;
 }
 
-message UpdateReviewRequest {
-  Review review = 1;
+message GetUserReply {
+  string user_id = 1;
 }
 
-message GetReviewRequest {
-  string review_id = 1;
+message DeleteUserReply {
+  string user_id = 1;
 }
 
-message DeleteReviewRequest {
-  string review_id = 1;
-}
-
-message Review {
-  string id = 1;
-  string content = 2;
-  string business_id = 3;
-  int star_level = 4;
-  Metadata metadata = 5;
-  repeated string photos = 6;
-  string parent_id = 7;
-  repeated Review child_reviews = 8;
-}
 
 message Business {
-
+  string id = 1;
+  string headshot = 2;
+  string location = 3;
+  string cell_num = 4;
+  repeated Review reviews = 5;
+  Metadata metadata = 6;
 }
 
-message Metadata {
-  google.protobuf.Timestamp created_timestamp = 1;
-  google.protobuf.Timestamp deleted_timestamp = 2;
-  google.protobuf.Timestamp last_updated_timestamp = 3;
+message CreateBusinessRequest {
+  Business business = 1;
 }
-// The response message containing the greetings
-message HelloReply {
-  string message = 1;
+
+message UpdateBusinessRequest {
+  Business business = 1;
 }
+
+message GetBusinessRequest {
+  string business_id = 1;
+}
+
+message DeleteBusinessRequest {
+  string business_id = 1;
+}
+
+message CreateBusinessReply {
+  Business business = 1;
+}
+
+message UpdateBusinessReply {
+  Business business = 1;
+}
+
+message GetBusinessReply {
+  string business_id = 1;
+}
+
+message DeleteBusinessReply {
+  string business_id = 1;
+}
+
+
