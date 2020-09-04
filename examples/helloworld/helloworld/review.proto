@@ -14,11 +14,11 @@ message Review {
 }
 
 message CreateReviewRequest {
-  Review review = 1;
+  string business_id = 1;
 }
 
 message UpdateReviewRequest {
-  Review review = 1;
+  string business_id = 1;
 }
 
 message GetReviewRequest {

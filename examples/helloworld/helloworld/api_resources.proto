@@ -50,11 +50,11 @@ message UpdateUserReply {
 }
 
 message GetUserReply {
-  string user_id = 1;
+  User user = 1;
 }
 
 message DeleteUserReply {
-  string user_id = 1;
+  google.protobuf.Empty deleted_user = 1;
 }
 
 
@@ -65,6 +65,8 @@ message Business {
   string cell_num = 4;
   repeated Review reviews = 5;
   Metadata metadata = 6;
+  string days_of_week = 7;
+  string operating_hours = 8;
 }
 
 message CreateBusinessRequest {
@@ -92,11 +94,11 @@ message UpdateBusinessReply {
 }
 
 message GetBusinessReply {
-  string business_id = 1;
+  Business business = 1;
 }
 
 message DeleteBusinessReply {
-  string business_id = 1;
+  google.protobuf.Empty deleted_business = 1;
 }
 
 
