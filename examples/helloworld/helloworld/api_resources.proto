@@ -2,6 +2,7 @@
 syntax = "proto3";
 
 package yelp;
+import "google/protobuf/empty.proto";
 
 service Yelp {
   rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {}
@@ -13,8 +14,8 @@ service Yelp {
   rpc GetUser (GetUserRequest) returns (GetUserReply) {}
   rpc GetBusiness (GetBusinessRequest) returns (GetBusinessReply) {}
 
-  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserReply) {}
-  rpc DeleteBusiness (DeleteBusinessRequest) returns (DeleteBusinessReply) {}
+  rpc DeleteUser (DeleteUserRequest) returns (google.protobuf.Empty) {}
+  rpc DeleteBusiness (DeleteBusinessRequest) returns (google.protobuf.Empty) {}
 }
 
 message User {
@@ -53,9 +54,6 @@ message GetUserReply {
   User user = 1;
 }
 
-message DeleteUserReply {
-  google.protobuf.Empty deleted_user = 1;
-}
 
 
 message Business {
@@ -65,8 +63,19 @@ message Business {
   string cell_num = 4;
   repeated Review reviews = 5;
   Metadata metadata = 6;
-  string days_of_week = 7;
-  string operating_hours = 8;
+  enum OpenDate {
+    MONDAY = 0;
+    TUESDAY = 1;
+    WEDNESDAY = 2;
+    THURSDAY = 3;
+    FRIDAY = 4;
+    SATURDAY = 5;
+    SUNDAY = 6;
+  }
+  repeated OpenDate days = 7;
+  int32 open_minute = 8;
+  int32 close_minute = 9;
+
 }
 
 message CreateBusinessRequest {
@@ -97,8 +106,5 @@ message GetBusinessReply {
   Business business = 1;
 }
 
-message DeleteBusinessReply {
-  google.protobuf.Empty deleted_business = 1;
-}
 
 

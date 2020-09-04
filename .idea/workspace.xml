@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0aa27e9-512e-4d18-a7c3-80131fc5ae9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto" beforeDir="false" afterPath="$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/helloworld/helloworld/review.proto" beforeDir="false" afterPath="$PROJECT_DIR$/examples/helloworld/helloworld/review.proto" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,23 +32,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="proto" value="381" />
+          <entry key="proto" value="663" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="381" />
+          <entry key="PLAIN_TEXT" value="663" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
+            <state relative-caret-position="340">
+              <caret line="17" column="75" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -58,13 +56,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/helloworld/helloworld/metadata.proto">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/helloworld/helloworld/review.proto">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -90,8 +88,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/examples/helloworld/helloworld/metadata.proto" />
-        <option value="$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto" />
         <option value="$PROJECT_DIR$/examples/helloworld/helloworld/review.proto" />
+        <option value="$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto" />
       </list>
     </option>
   </component>
@@ -206,15 +204,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/examples/helloworld/helloworld/metadata.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -222,6 +213,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/helloworld/helloworld/api_resources.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="75" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="75" />
         </state>
       </provider>
     </entry>
