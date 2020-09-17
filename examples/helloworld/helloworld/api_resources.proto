@@ -1,0 +1,145 @@
+
+syntax = "proto3";
+
+package yelp;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "yelp/pkg/pb";
+
+service Yelp {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {}
+  rpc CreateBusiness (CreateBusinessRequest) returns (CreateBusinessReply) {}
+
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply) {}
+  rpc UpdateBusiness (UpdateBusinessRequest) returns (UpdateBusinessReply) {}
+
+  rpc GetUser (GetUserRequest) returns (GetUserReply) {}
+  rpc GetBusiness (GetBusinessRequest) returns (GetBusinessReply) {}
+
+  rpc DeleteUser (DeleteUserRequest) returns (google.protobuf.Empty) {}
+  rpc DeleteBusiness (DeleteBusinessRequest) returns (google.protobuf.Empty) {}
+}
+
+message User {
+  string id = 1;
+  string headshot = 2;
+  repeated Review reviews = 3;
+  repeated Business bookmarks = 4;
+  Metadata metadata = 5;
+}
+
+message CreateUserRequest {
+  User user = 1;
+}
+
+message UpdateUserRequest {
+  User user = 1;
+}
+
+message GetUserRequest {
+  string user_id = 1;
+}
+
+message DeleteUserRequest {
+  string user_id = 1;
+}
+
+message CreateUserReply {
+  User user = 1;
+}
+
+message UpdateUserReply {
+  User user = 1;
+}
+
+message GetUserReply {
+  User user = 1;
+}
+
+
+
+message Business {
+  string id = 1;
+  string headshot = 2;
+  string location = 3;
+  string cell_num = 4;
+  repeated Review reviews = 5;
+  Metadata metadata = 6;
+  enum OpenDate {
+    MONDAY = 0;
+    TUESDAY = 1;
+    WEDNESDAY = 2;
+    THURSDAY = 3;
+    FRIDAY = 4;
+    SATURDAY = 5;
+    SUNDAY = 6;
+  }
+  repeated OpenDate days = 7;
+  int32 open_minute = 8;
+  int32 close_minute = 9;
+
+}
+
+message CreateBusinessRequest {
+  Business business = 1;
+}
+
+message UpdateBusinessRequest {
+  Business business = 1;
+}
+
+message GetBusinessRequest {
+  string business_id = 1;
+}
+
+message DeleteBusinessRequest {
+  string business_id = 1;
+}
+
+message CreateBusinessReply {
+  Business business = 1;
+}
+
+message UpdateBusinessReply {
+  Business business = 1;
+}
+
+message GetBusinessReply {
+  Business business = 1;
+}
+
+message Metadata {
+  google.protobuf.Timestamp created_timestamp = 1;
+  google.protobuf.Timestamp deleted_timestamp = 2;
+  google.protobuf.Timestamp last_updated_timestamp = 3;
+}
+
+message Review {
+  string id = 1;
+  string content = 2;
+  string business_id = 3;
+  int32 star_level = 4;
+  Metadata metadata = 5;
+  repeated string photos = 6;
+  string parent_id = 7;
+  repeated Review child_reviews = 8;
+}
+
+message CreateReviewRequest {
+  string business_id = 1;
+}
+
+message UpdateReviewRequest {
+  string business_id = 1;
+}
+
+message GetReviewRequest {
+  string review_id = 1;
+}
+
+message DeleteReviewRequest {
+  string review_id = 1;
+}
+

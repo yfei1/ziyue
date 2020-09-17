@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package yelp;
+
+import "yelp/metadata.proto";
+
+message Review {
+  string id = 1;
+  string content = 2;
+  string business_id = 3;
+  int32 star_level = 4;
+  Metadata metadata = 5;
+  repeated string photos = 6;
+  string parent_id = 7;
+  repeated Review child_reviews = 8;
+}
+
+message CreateReviewRequest {
+  string business_id = 1;
+}
+
+message UpdateReviewRequest {
+  string business_id = 1;
+}
+
+message GetReviewRequest {
+  string review_id = 1;
+}
+
+message DeleteReviewRequest {
+  string review_id = 1;
+}
